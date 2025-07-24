@@ -56,8 +56,8 @@ ollama pull llama3:2b  # LLaMA 3.2:1b variant
 
 ### Installation
 ```bash
-git clone https://github.com/yourusername/DevInsight-Agent.git
-cd DevInsight-Agent
+git clone https://github.com/yourusername/DevInsightAgent.git
+cd DevInsightAgent
 pip install -r requirements.txt
 ```
 
