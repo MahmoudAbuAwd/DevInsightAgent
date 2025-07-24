@@ -1,133 +1,165 @@
-# 🚀 DevInsight Agent - GitHub Repository Analyzer
+# DevInsight Agent
 
-![Project Banner](https://github.com/yourusername/DevInsight-Agent/raw/main/assets/banner.gif)
+A Python-based tool for analyzing GitHub repositories using local LLM models. Provides insights into code quality, tech stack detection, and generates improvement suggestions.
 
-<div align="center">
-  
-[![GitHub Stars](https://img.shields.io/github/stars/yourusername/DevInsight-Agent?style=for-the-badge&logo=github)](https://github.com/yourusername/DevInsight-Agent/stargazers)
-[![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+## Features
 
-</div>
+- **Repository Analysis**: Clone and analyze any public GitHub repository
+- **Code Quality Assessment**: Identify potential issues and code smells
+- **Technology Detection**: Automatically detect programming languages and frameworks
+- **Documentation Generation**: Create structured analysis reports
+- **Local Processing**: Works entirely offline using Ollama
 
-## 🌟 Features
+## Requirements
 
-<div align="center">
-  
-```mermaid
-pie
-    title Key Features
-    "Code Analysis" : 35
-    "Tech Stack Detection" : 25
-    "Documentation Review" : 20
-    "Improvement Suggestions" : 20
-```
+- Python 3.8 or higher
+- Git installed on your system
+- Ollama for local LLM inference
 
-</div>
+## Installation
 
-- 🔍 **Deep Code Analysis** with LLaMA 3.2:1b
-- 📊 **Technology Stack Visualization**
-- 🐛 **Bug & Smell Detection**
-- 📝 **Auto-Generated Documentation**
-- 🚀 **Performance Optimization Tips**
-- 💻 **100% Offline Operation**
+1. **Install Ollama** (if not already installed):
+   ```bash
+   curl -fsSL https://ollama.ai/install.sh | sh
+   ```
 
-## 🛠️ Tech Stack
+2. **Pull the required model**:
+   ```bash
+   ollama pull llama3.2:1b
+   ```
 
-<div align="center">
-  
-| Component        | Technology                          |
-|------------------|-------------------------------------|
-| **LLM Engine**   | LLaMA 3.2:1b (Local)               |
-| **Backend**      | Python 3.8+                        |
-| **Web Interface**| Streamlit                          |
-| **Repo Handling**| GitPython                          |
-| **Visualization**| Mermaid.js, Plotly                 |
+3. **Clone this repository**:
+   ```bash
+   git clone https://github.com/yourusername/devinsight-agent.git
+   cd devinsight-agent
+   ```
 
-</div>
+4. **Install Python dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## 🎯 Quick Start
+## Usage
 
-### Prerequisites
+### Command Line Interface
+
 ```bash
-curl -fsSL https://ollama.com/install.sh | sh
-ollama pull llama3:2b  # LLaMA 3.2:1b variant
+python analyze.py <repository-url>
 ```
 
-### Installation
+Example:
 ```bash
-git clone https://github.com/yourusername/DevInsightAgent.git
-cd DevInsightAgent
-pip install -r requirements.txt
+python analyze.py https://github.com/user/sample-project.git
 ```
 
-### Usage
-#### CLI Version
-```bash
-python main.py https://github.com/username/repository.git
-```
+### Web Interface (Optional)
 
-#### Web Interface
+If you prefer a web interface:
+
 ```bash
 streamlit run app.py
 ```
 
-![Interface Demo](https://github.com/yourusername/DevInsight-Agent/raw/main/assets/interface-demo.gif)
+Then navigate to `http://localhost:8501` in your browser.
 
-## 📊 Sample Report Output
+## Configuration
 
-```markdown
-# DevInsight Analysis Report
+Edit `config.py` to customize analysis parameters:
 
-## 🔍 Repository Overview
-**Project**: WriteWiseAI  
-**Analysis Date**: 2023-11-15  
-**Total Files**: 142  
-**Code Files**: 87  
+```python
+# Model settings
+OLLAMA_MODEL = "llama3.2:1b"
+MAX_FILE_SIZE = 1024 * 1024  # 1MB
+SUPPORTED_EXTENSIONS = ['.py', '.js', '.java', '.cpp', '.c', '.go']
 
-## 🧩 Technology Stack
-```mermaid
-graph TD
-    A[Python] --> B[Flask]
-    A --> C[Pandas]
-    A --> D[NLTK]
-    B --> E[API Endpoints]
+# Analysis settings
+IGNORE_DIRS = ['node_modules', '.git', '__pycache__', 'venv']
+MAX_FILES_TO_ANALYZE = 100
 ```
 
-## 🚨 Potential Issues
-1. **Security**: Found 3 hardcoded API keys
-2. **Performance**: Unoptimized database queries in `data_processor.py`
-3. **Documentation**: 62% of functions lack docstrings
+## Project Structure
 
-## 💡 Recommendations
-✅ Implement environment variables for configuration  
-✅ Add pagination to large database queries  
-✅ Write unit tests for core modules  
+```
+devinsight-agent/
+├── src/
+│   ├── analyzer.py          # Core analysis logic
+│   ├── repo_handler.py      # Repository cloning and management
+│   ├── llm_client.py        # Ollama integration
+│   └── report_generator.py  # Report creation
+├── templates/
+│   └── analysis_prompts.py  # LLM prompt templates
+├── config.py                # Configuration settings
+├── analyze.py               # Main CLI script
+├── app.py                   # Streamlit web interface
+├── requirements.txt
+└── README.md
 ```
 
-## 🏗️ Project Structure
+## Sample Output
 
-```bash
-.
-├── agent/                # Core analysis modules
-│   ├── cloner.py         # Repository cloning
-│   ├── analyzer.py       # Code analysis engine
-│   └── reporter.py       # Report generation
-├── prompts/              # LLM prompt templates
-├── app.py                # Streamlit web interface
-├── main.py               # CLI interface
-├── config.py             # Configuration settings
-└── Requirements.txt
-   ```
+```
+=== Repository Analysis Report ===
 
-## 📜 License
-MIT © 2023 [Your Name]
+Repository: sample-project
+Analyzed: 23 files
+Languages detected: Python (85%), JavaScript (15%)
 
----
+Key Findings:
+• Found 2 potential security issues
+• 5 functions missing documentation
+• Code complexity score: 6.2/10
+• Detected frameworks: Flask, React
 
-<div align="center">
-  
-[![Buy Me A Coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/yourusername)
-[![Twitter Follow](https://img.shields.io/badge/Follow-%40yourhandle-1DA1F2?style=for-the-badge&logo=twitter)](https://twitter.com/yourhandle)
+Recommendations:
+1. Add input validation in user_controller.py (line 45)
+2. Consider breaking down large functions in data_processor.py
+3. Add unit tests for core functionality
+4. Update dependencies (3 outdated packages found)
 
-</div>
+Analysis completed in 34 seconds.
+```
+
+## Limitations
+
+- Currently supports repositories up to 50MB
+- Analysis quality depends on the LLM model used
+- Some complex codebases may require manual review of suggestions
+- Limited support for proprietary or domain-specific languages
+
+## Dependencies
+
+```
+streamlit>=1.28.0
+GitPython>=3.1.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## Troubleshooting
+
+**Issue**: "Model not found" error
+**Solution**: Make sure you've pulled the required model with `ollama pull llama3.2:1b`
+
+**Issue**: Out of memory errors
+**Solution**: Reduce `MAX_FILES_TO_ANALYZE` in config.py or use a smaller model
+
+**Issue**: Repository cloning fails
+**Solution**: Check your internet connection and ensure the repository URL is correct
+
+## Acknowledgments
+
+- Uses Ollama for local LLM inference
+- Built with Streamlit for the web interface
+- Inspired by various code analysis tools in the open source community
