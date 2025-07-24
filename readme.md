@@ -30,8 +30,8 @@ A Python-based tool for analyzing GitHub repositories using local LLM models. Pr
 
 3. **Clone this repository**:
    ```bash
-   git clone https://github.com/yourusername/devinsight-agent.git
-   cd devinsight-agent
+   git clone https://github.com/yourusername/DevInsightAgent.git
+   cd DevInsightAgent
    ```
 
 4. **Install Python dependencies**:
@@ -163,6 +163,5 @@ MIT License - see [LICENSE](LICENSE) file for details.
 - Uses Ollama for local LLM inference
 - Built with Streamlit for the web interface
 - Inspired by various code analysis tools in the open source community
-- # YOLO Achievement Test 🚀
 
 
