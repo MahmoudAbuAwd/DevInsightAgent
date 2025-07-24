@@ -163,3 +163,6 @@ MIT License - see [LICENSE](LICENSE) file for details.
 - Uses Ollama for local LLM inference
 - Built with Streamlit for the web interface
 - Inspired by various code analysis tools in the open source community
+- # YOLO Achievement Test 🚀
+
+
