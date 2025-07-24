@@ -1,0 +1,19 @@
+Based on the following repository analysis, please generate a comprehensive report:
+
+1. **Project Overview**: Briefly describe what this project does based on the available information.
+
+2. **Technology Stack**: Identify the main technologies used (programming languages, frameworks, tools).
+
+3. **Code Structure**: Highlight any notable patterns or organization in the codebase.
+
+4. **Potential Issues**: 
+   - Code smells or anti-patterns
+   - Missing or incomplete documentation
+   - Any other areas for improvement
+
+5. **Recommendations**:
+   - Suggested refactoring opportunities
+   - Documentation improvements
+   - Any other actionable advice
+
+Format your response in markdown with clear headings for each section.
