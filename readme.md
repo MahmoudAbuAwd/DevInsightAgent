@@ -116,26 +116,8 @@ graph TD
 ├── prompts/              # LLM prompt templates
 ├── app.py                # Streamlit web interface
 ├── main.py               # CLI interface
-└── config.py             # Configuration settings
-```
-
-## 🌈 Visualization Features
-
-1. **Interactive Tech Stack Graphs**
-   ```python
-   import plotly.express as px
-   fig = px.sunburst(language_data, path=['language', 'framework'])
-   st.plotly_chart(fig)
-   ```
-
-2. **Code Health Dashboard**
-   ![Dashboard Preview](https://github.com/yourusername/DevInsight-Agent/raw/main/assets/dashboard.png)
-
-3. **Real-time Analysis Progress**
-   ```python
-   with st.status("Analyzing repository...", expanded=True) as status:
-       analyze_code()
-       status.update(label="Analysis complete!", state="complete")
+├── config.py             # Configuration settings
+└── Requirements.txt
    ```
 
 ## 📜 License
@@ -149,26 +131,3 @@ MIT © 2023 [Your Name]
 [![Twitter Follow](https://img.shields.io/badge/Follow-%40yourhandle-1DA1F2?style=for-the-badge&logo=twitter)](https://twitter.com/yourhandle)
 
 </div>
-```
-
-### Key Visual Enhancements:
-
-1. **Animated Banner**: Add a GIF showing the tool in action
-2. **Mermaid Diagrams**: For tech stack visualization
-3. **Interactive Badges**: GitHub stars, Python version, etc.
-4. **Progress Animations**: For the web interface
-5. **Sample Report Visualization**: With code blocks and diagrams
-6. **Sunburst Charts**: For language/framework breakdowns
-
-### Implementation Notes:
-
-1. Create an `assets/` folder for images/GIFs
-2. Add actual screenshots of your interface
-3. For the LLaMA 3.2:1b implementation:
-   ```python
-   # In config.py
-   MODEL_NAME = "llama3:2b"  # 2B parameter version
-   MODEL_VERSION = "3.2:1b"  # Specific variant
-   ```
-
-Would you like me to add any specific visualization examples or create actual image assets for your project?
